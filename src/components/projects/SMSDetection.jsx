@@ -357,13 +357,69 @@ print(classification_report(predictions, label_test))
         </div>
       </div>
 
+      {/* Future Work & Model Improvements */}
+<div style={{ textAlign: "center", padding: "3rem", maxWidth: "80%", margin: "auto", marginTop: "3rem" }}>
+  <h2 style={{ fontSize: "2rem", fontWeight: "bold", marginBottom: "2rem" }}>
+    🚀 Future Work & Model Improvements
+  </h2>
+
+  <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "4rem", textAlign: "center" }}>
+    
+    {/* Improving Model Performance */}
+    <div>
+      <h3 style={{ fontSize: "1.5rem", fontWeight: "bold", marginBottom: "1rem" }}>📈 Improving Model Performance</h3>
+      <p style={{ fontSize: "1.1rem", marginBottom: "1rem", maxWidth: "90%", margin: "auto" }}>
+        Experiment with advanced classification models such as Random Forest, XGBoost, or deep learning models like LSTMs for better accuracy.
+      </p>
+      <p style={{ fontSize: "1.1rem", fontStyle: "italic", maxWidth: "90%", margin: "auto" }}>
+        Fine-tune hyperparameters using Grid Search or Bayesian Optimization.
+      </p>
+    </div>
+
+    {/* Expanding the Dataset */}
+    <div>
+      <h3 style={{ fontSize: "1.5rem", fontWeight: "bold", marginBottom: "1rem" }}>📊 Expanding the Dataset</h3>
+      <p style={{ fontSize: "1.1rem", marginBottom: "1rem", maxWidth: "90%", margin: "auto" }}>
+        Collect and incorporate new spam datasets to enhance model generalization and reduce bias.
+      </p>
+      <p style={{ fontSize: "1.1rem", fontStyle: "italic", maxWidth: "90%", margin: "auto" }}>
+        Introduce multilingual spam messages to make the model more robust.
+      </p>
+    </div>
+
+    {/* Real-Time Detection */}
+    <div>
+      <h3 style={{ fontSize: "1.5rem", fontWeight: "bold", marginBottom: "1rem" }}>⏳ Real-Time Detection</h3>
+      <p style={{ fontSize: "1.1rem", marginBottom: "1rem", maxWidth: "90%", margin: "auto" }}>
+        Deploy the model as a live service that scans and classifies SMS messages in real-time.
+      </p>
+      <p style={{ fontSize: "1.1rem", fontStyle: "italic", maxWidth: "90%", margin: "auto" }}>
+        Implement it as a browser extension or mobile application.
+      </p>
+    </div>
+
+    {/* Model Deployment */}
+    <div>
+      <h3 style={{ fontSize: "1.5rem", fontWeight: "bold", marginBottom: "1rem" }}>🌐 Model Deployment</h3>
+      <p style={{ fontSize: "1.1rem", marginBottom: "1rem", maxWidth: "90%", margin: "auto" }}>
+        Deploy the trained model as a web API using Flask or FastAPI to serve real-time spam detection.
+      </p>
+      <p style={{ fontSize: "1.1rem", fontStyle: "italic", maxWidth: "90%", margin: "auto" }}>
+        Consider cloud-based deployment options such as AWS Lambda, Google Cloud, or Heroku.
+      </p>
+    </div>
+  
+  </div>
+</div>
+
+
 
       
 
       {/* GitHub Link */}
-      <a href="https://github.com/mhuy26/sms-spam-detection" target="_blank" rel="noopener noreferrer"
+      <a href="https://github.com/mhuy26/SpamOrHamDectect" target="_blank" rel="noopener noreferrer"
         style={{ color: "#61dafb", textDecoration: "none", fontWeight: "bold", display: "block", marginTop: "1rem", fontSize: "1.2rem" }}>
-        View on GitHub →
+        View on GitHub
       </a>
     </div>
   );
