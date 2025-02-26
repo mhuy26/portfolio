@@ -414,7 +414,7 @@ export default function LoanRepayment() {
         {/* GitHub Link */}
         <a href="https://github.com/mhuy26/keras_loan" target="_blank" rel="noopener noreferrer"
           style={{ color: "#61dafb", textDecoration: "none", fontWeight: "bold", display: "block", marginTop: "1rem" }}>
-          View on GitHub →
+          View on GitHub
         </a>
     </div>
   );
