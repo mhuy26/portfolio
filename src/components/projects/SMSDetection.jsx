@@ -1,11 +1,32 @@
 export default function SMSDetection() {
+  const isMobile = window.innerWidth <= 768;
+  const headingStyle = {
+    fontSize: isMobile ? "1.5rem" : "2rem",
+    fontWeight: "bold",
+    marginBottom: "1rem",
+  };
+  const listStyle = {
+    listStyleType: "disc",
+    paddingLeft: "20px",
+    fontSize: isMobile ? "1rem" : "1.1rem",
+  };
+  const paragraphStyle = {
+    fontSize: isMobile ? "1rem" : "1.1rem",
+    marginBottom: "1rem",
+  };
+  const subheadingStyle = {
+    fontSize: isMobile ? "1.4rem" : "1.5rem",
+    fontWeight: "bold",
+    marginBottom: "1rem",
+  };
+
   return (
     <div style={{ textAlign: "center", padding: "2rem", color: "#E0E0E0" }}>
-      <h2 style={{ fontSize: "2rem", fontWeight: "bold", marginBottom: "1rem" }}>📩 SMS Spam Detection - NLP</h2>
+      <h2 style={headingStyle}>📩 SMS Spam Detection - NLP</h2>
 
       {/* Project Summary */}
       <div style={{ textAlign: "left", maxWidth: "75%", margin: "auto", paddingTop: "1rem" }}>
-        <ul style={{ listStyleType: "disc", paddingLeft: "20px", fontSize: "1.1rem" }}>
+        <ul style={listStyle}>
           <li>Developed an <strong>SMS spam detection system</strong> using <strong>Scikit-learn, Pandas, and Numpy</strong>.</li>
           <li>Trained on <strong>5,000+ messages</strong> from the <strong>UCI SMS Spam Collection dataset</strong>.</li>
           <li>Applied <strong>text preprocessing</strong> (punctuation removal, stop words filtering, tokenization, stemming).</li>
@@ -16,7 +37,7 @@ export default function SMSDetection() {
 
       {/* EDA Section - Histogram of Message Lengths */}
       <div style={{ textAlign: "left", padding: "2rem", maxWidth: "80%", margin: "auto" }}>
-        <p style={{ fontSize: "1.2rem", marginBottom: "1rem" }}>
+        <p style={paragraphStyle}>
           We analyze the distribution of <strong>message lengths</strong> for spam and ham messages. The histogram below shows that <strong>spam messages tend to be longer</strong> compared to non-spam messages.
         </p>
 
@@ -30,8 +51,8 @@ export default function SMSDetection() {
 
           {/* Right: Insights */}
           <div style={{ textAlign: "left" }}>
-            <h3 style={{ fontSize: "1.5rem", fontWeight: "bold", marginBottom: "1rem" }}>📊 Message Length Insights</h3>
-            <ul style={{ listStyleType: "disc", paddingLeft: "20px", fontSize: "1.1rem" }}>
+            <h3 style={subheadingStyle}>📊 Message Length Insights</h3>
+            <ul style={listStyle}>
               <li><strong>Spam messages are generally longer</strong> than ham messages.</li>
               <li>Most ham messages are <strong>short and concise</strong>, often under <strong>100 characters</strong>.</li>
               <li>Spam messages often include <strong>marketing phrases, links, and call-to-actions</strong>, making them longer.</li>
@@ -42,13 +63,13 @@ export default function SMSDetection() {
 
       {/* Large Section Title: Text Preprocessing */}
       <div style={{ textAlign: "left", padding: "2rem", maxWidth: "80%", margin: "auto" }}>
-        <h2 style={{ fontSize: "2rem", fontWeight: "bold", marginBottom: "1rem", textAlign: "center" }}>
+        <h2 style={headingStyle}>
           🛠️ Text Preprocessing
         </h2>
 
         {/* Steps Overview */}
-        <p style={{ fontSize: "1.2rem", marginBottom: "1rem", fontWeight: "bold" }}>Steps in Text Preprocessing:</p>
-        <ol style={{ paddingLeft: "20px", fontSize: "1.1rem" }}>
+        <p style={paragraphStyle}>Steps in Text Preprocessing:</p>
+        <ol style={listStyle}>
           <li>Remove punctuation and stopwords</li>
           <li>Tokenize the message into a list of meaningful words</li>
           <li>Convert text into a numerical representation using Bag-Of-Words</li>
@@ -77,8 +98,8 @@ stopwords.words('english')[:10]
 
         {/* Explanation */}
         <div style={{ textAlign: "left" }}>
-          <h3 style={{ fontSize: "1.5rem", fontWeight: "bold", marginBottom: "1rem" }}>🛑 Removing Stopwords</h3>
-          <ul style={{ listStyleType: "disc", paddingLeft: "20px", fontSize: "1.1rem" }}>
+          <h3 style={subheadingStyle}>🛑 Removing Stopwords</h3>
+          <ul style={listStyle}>
             <li>Stopwords are common words that do not contribute much meaning.</li>
             <li>Examples: "i", "me", "my", "we", "our", "you".</li>
             <li>Removing them helps the model focus on important words.</li>
@@ -109,8 +130,8 @@ messages['message'].head(5).apply(text_process)
 
         {/* Explanation */}
         <div style={{ textAlign: "left" }}>
-          <h3 style={{ fontSize: "1.5rem", fontWeight: "bold", marginBottom: "1rem" }}>🔡 Tokenization</h3>
-          <ul style={{ listStyleType: "disc", paddingLeft: "20px", fontSize: "1.1rem" }}>
+          <h3 style={subheadingStyle}>🔡 Tokenization</h3>
+          <ul style={listStyle}>
             <li>Converts text into individual words.</li>
             <li>Removes punctuation and stopwords.</li>
             <li>Prepares text for numerical transformation.</li>
@@ -143,8 +164,8 @@ Amount of Non-Zero occurences: 50795`
 
         {/* Explanation */}
         <div style={{ textAlign: "left" }}>
-          <h3 style={{ fontSize: "1.5rem", fontWeight: "bold", marginBottom: "1rem" }}>🔢 Vectorization (Bag of Words)</h3>
-          <ul style={{ listStyleType: "disc", paddingLeft: "20px", fontSize: "1.1rem" }}>
+          <h3 style={subheadingStyle}>🔢 Vectorization (Bag of Words)</h3>
+          <ul style={listStyle}>
             <li>Converts tokenized words into a word count matrix.</li>
             <li>Uses CountVectorizer to create numerical feature vectors.</li>
             <li>The dataset contains 11,444 unique words.</li>
@@ -153,9 +174,9 @@ Amount of Non-Zero occurences: 50795`
       </div>
 
       {/* Why Vectorization? */}
-      <p style={{ fontSize: "1.2rem", fontStyle: "italic", textAlign: "center", marginTop: "1.5rem", color: "#E0E0E0" }}>
+      <p style={{ ...paragraphStyle, fontStyle: "italic", textAlign: "center", marginTop: "1.5rem", color: "#E0E0E0" }}>
         Why? 🤔  
-        Machines can’t understand words, but they can process numbers!  
+        Machines can't understand words, but they can process numbers!  
         Vectorization transforms text into numerical form so it can be used for machine learning.
       </p>
 
@@ -182,8 +203,8 @@ messages_tfidf = tfidf_transformer.transform(messages_bow)
 
         {/* Explanation */}
         <div style={{ textAlign: "left" }}>
-          <h3 style={{ fontSize: "1.5rem", fontWeight: "bold", marginBottom: "1rem" }}>📊 TF-IDF Transformation</h3>
-          <ul style={{ listStyleType: "disc", paddingLeft: "20px", fontSize: "1.1rem" }}>
+          <h3 style={subheadingStyle}>📊 TF-IDF Transformation</h3>
+          <ul style={listStyle}>
             <li>Term Frequency-Inverse Document Frequency (TF-IDF) assigns importance to words.</li>
             <li>Common words are weighted lower, while rare words are weighted higher.</li>
             <li>Each number represents the TF-IDF weight of a word in a message.</li>
@@ -194,7 +215,7 @@ messages_tfidf = tfidf_transformer.transform(messages_bow)
       </div>
 
       {/* Why TF-IDF? */}
-      <p style={{ fontSize: "1.2rem", fontStyle: "italic", textAlign: "center", marginTop: "1.5rem", color: "#E0E0E0" }}>
+      <p style={{ ...paragraphStyle, fontStyle: "italic" }}>
         Why? 🤔  
         Not all words carry the same importance.  
         TF-IDF ensures that frequently occurring words get less weight, while rare but important words stand out.
@@ -205,11 +226,11 @@ messages_tfidf = tfidf_transformer.transform(messages_bow)
 
       {/* Training a Model Section */}
       <div style={{ textAlign: "left", padding: "2rem", maxWidth: "80%", margin: "auto", marginTop: "3rem" }}>
-        <h2 style={{ fontSize: "2rem", fontWeight: "bold", marginBottom: "1rem", textAlign: "center" }}>
+        <h2 style={headingStyle}>
           🤖 Training the Spam Classifier
         </h2>
 
-        <p style={{ fontSize: "1.2rem", marginBottom: "1rem" }}>
+        <p style={paragraphStyle}>
           Now that we have preprocessed and vectorized our SMS messages, we can train a **spam classifier** to distinguish between spam and ham messages.
           For this, we will use the **Naïve Bayes** algorithm, a popular choice for text classification.
         </p>
@@ -234,8 +255,8 @@ spam_detect_model = MultinomialNB().fit(messages_tfidf, messages['label'])`}
 
           {/* Explanation */}
           <div style={{ textAlign: "left" }}>
-            <h3 style={{ fontSize: "1.5rem", fontWeight: "bold", marginBottom: "1rem" }}>📌 Why Naïve Bayes?</h3>
-            <ul style={{ listStyleType: "disc", paddingLeft: "20px", fontSize: "1.1rem" }}>
+            <h3 style={subheadingStyle}>📌 Why Naïve Bayes?</h3>
+            <ul style={listStyle}>
               <li>Computationally **fast and efficient**, even for large datasets.</li>
               <li>Works well with **high-dimensional text data** (thousands of unique words).</li>
               <li>Performs well even with **small amounts of training data**.</li>
@@ -247,7 +268,7 @@ spam_detect_model = MultinomialNB().fit(messages_tfidf, messages['label'])`}
 
       {/* Train-Test Split Section */}
       <div style={{ textAlign: "left", padding: "2rem", maxWidth: "80%", margin: "auto", marginTop: "3rem" }}>
-        <h2 style={{ fontSize: "2rem", fontWeight: "bold", marginBottom: "1rem", textAlign: "center" }}>🔀 Train-Test Split</h2>
+        <h2 style={headingStyle}>🔀 Train-Test Split</h2>
 
         <div style={{ display: "grid", gridTemplateColumns: "2fr 1fr", alignItems: "center", gap: "4rem" }}>
           <pre style={{
@@ -269,8 +290,8 @@ msg_train, msg_test, label_train, label_test = train_test_split(messages['messag
           </pre>
 
           <div style={{ textAlign: "left" }}>
-            <h3 style={{ fontSize: "1.5rem", fontWeight: "bold", marginBottom: "1rem" }}>📊 Why Split Data?</h3>
-            <ul style={{ listStyleType: "disc", paddingLeft: "20px", fontSize: "1.1rem" }}>
+            <h3 style={subheadingStyle}>📊 Why Split Data?</h3>
+            <ul style={listStyle}>
               <li>We divide data into training (80%) and testing (20%) sets.</li>
               <li>Training set teaches the model, while the test set evaluates its performance.</li>
               <li>This prevents overfitting and ensures the model generalizes well.</li>
@@ -281,7 +302,7 @@ msg_train, msg_test, label_train, label_test = train_test_split(messages['messag
 
       {/* Creating a Data Pipeline */}
       <div style={{ textAlign: "left", padding: "2rem", maxWidth: "80%", margin: "auto", marginTop: "3rem" }}>
-        <h2 style={{ fontSize: "2rem", fontWeight: "bold", marginBottom: "1rem", textAlign: "center" }}>🔗 Creating a Data Pipeline</h2>
+        <h2 style={headingStyle}>🔗 Creating a Data Pipeline</h2>
 
         <div style={{ display: "grid", gridTemplateColumns: "2fr 1fr", alignItems: "center", gap: "4rem" }}>
           <pre style={{
@@ -307,8 +328,8 @@ pipeline.fit(msg_train, label_train)`}
           </pre>
 
           <div style={{ textAlign: "left" }}>
-            <h3 style={{ fontSize: "1.5rem", fontWeight: "bold", marginBottom: "1rem" }}>🚀 Why Use a Pipeline?</h3>
-            <ul style={{ listStyleType: "disc", paddingLeft: "20px", fontSize: "1.1rem" }}>
+            <h3 style={subheadingStyle}>🚀 Why Use a Pipeline?</h3>
+            <ul style={listStyle}>
               <li>Automates text processing, vectorization, and model training.</li>
               <li>Makes predictions easier by processing raw text directly.</li>
               <li>Improves efficiency and reduces manual steps.</li>
@@ -319,7 +340,7 @@ pipeline.fit(msg_train, label_train)`}
 
       {/* Model Evaluation Section */}
       <div style={{ textAlign: "left", padding: "2rem", maxWidth: "80%", margin: "auto", marginTop: "3rem" }}>
-        <h2 style={{ fontSize: "2rem", fontWeight: "bold", marginBottom: "1rem", textAlign: "center" }}>📈 Model Evaluation</h2>
+        <h2 style={headingStyle}>📈 Model Evaluation</h2>
 
         <div style={{ display: "grid", gridTemplateColumns: "2fr 1fr", alignItems: "center", gap: "4rem" }}>
           <pre style={{
@@ -346,8 +367,8 @@ print(classification_report(predictions, label_test))
           </pre>
 
           <div style={{ textAlign: "left" }}>
-            <h3 style={{ fontSize: "1.5rem", fontWeight: "bold", marginBottom: "1rem" }}>📊 Understanding the Results</h3>
-            <ul style={{ listStyleType: "disc", paddingLeft: "20px", fontSize: "1.1rem" }}>
+            <h3 style={subheadingStyle}>📊 Understanding the Results</h3>
+            <ul style={listStyle}>
               <li><b>Precision:</b> Accuracy of spam detection.</li>
               <li><b>Recall:</b> How many actual spam messages were detected.</li>
               <li><b>F1-score:</b> Balance of precision and recall.</li>
@@ -359,7 +380,7 @@ print(classification_report(predictions, label_test))
 
       {/* Future Work & Model Improvements */}
 <div style={{ textAlign: "center", padding: "3rem", maxWidth: "80%", margin: "auto", marginTop: "3rem" }}>
-  <h2 style={{ fontSize: "2rem", fontWeight: "bold", marginBottom: "2rem" }}>
+  <h2 style={headingStyle}>
     🚀 Future Work & Model Improvements
   </h2>
 
@@ -367,44 +388,44 @@ print(classification_report(predictions, label_test))
     
     {/* Improving Model Performance */}
     <div>
-      <h3 style={{ fontSize: "1.5rem", fontWeight: "bold", marginBottom: "1rem" }}>📈 Improving Model Performance</h3>
-      <p style={{ fontSize: "1.1rem", marginBottom: "1rem", maxWidth: "90%", margin: "auto" }}>
+      <h3 style={subheadingStyle}>📈 Improving Model Performance</h3>
+      <p style={paragraphStyle}>
         Experiment with advanced classification models such as Random Forest, XGBoost, or deep learning models like LSTMs for better accuracy.
       </p>
-      <p style={{ fontSize: "1.1rem", fontStyle: "italic", maxWidth: "90%", margin: "auto" }}>
+      <p style={{ ...paragraphStyle, fontStyle: "italic" }}>
         Fine-tune hyperparameters using Grid Search or Bayesian Optimization.
       </p>
     </div>
 
     {/* Expanding the Dataset */}
     <div>
-      <h3 style={{ fontSize: "1.5rem", fontWeight: "bold", marginBottom: "1rem" }}>📊 Expanding the Dataset</h3>
-      <p style={{ fontSize: "1.1rem", marginBottom: "1rem", maxWidth: "90%", margin: "auto" }}>
+      <h3 style={subheadingStyle}>📊 Expanding the Dataset</h3>
+      <p style={paragraphStyle}>
         Collect and incorporate new spam datasets to enhance model generalization and reduce bias.
       </p>
-      <p style={{ fontSize: "1.1rem", fontStyle: "italic", maxWidth: "90%", margin: "auto" }}>
+      <p style={{ ...paragraphStyle, fontStyle: "italic" }}>
         Introduce multilingual spam messages to make the model more robust.
       </p>
     </div>
 
     {/* Real-Time Detection */}
     <div>
-      <h3 style={{ fontSize: "1.5rem", fontWeight: "bold", marginBottom: "1rem" }}>⏳ Real-Time Detection</h3>
-      <p style={{ fontSize: "1.1rem", marginBottom: "1rem", maxWidth: "90%", margin: "auto" }}>
+      <h3 style={subheadingStyle}>⏳ Real-Time Detection</h3>
+      <p style={paragraphStyle}>
         Deploy the model as a live service that scans and classifies SMS messages in real-time.
       </p>
-      <p style={{ fontSize: "1.1rem", fontStyle: "italic", maxWidth: "90%", margin: "auto" }}>
+      <p style={{ ...paragraphStyle, fontStyle: "italic" }}>
         Implement it as a browser extension or mobile application.
       </p>
     </div>
 
     {/* Model Deployment */}
     <div>
-      <h3 style={{ fontSize: "1.5rem", fontWeight: "bold", marginBottom: "1rem" }}>🌐 Model Deployment</h3>
-      <p style={{ fontSize: "1.1rem", marginBottom: "1rem", maxWidth: "90%", margin: "auto" }}>
+      <h3 style={subheadingStyle}>🌐 Model Deployment</h3>
+      <p style={paragraphStyle}>
         Deploy the trained model as a web API using Flask or FastAPI to serve real-time spam detection.
       </p>
-      <p style={{ fontSize: "1.1rem", fontStyle: "italic", maxWidth: "90%", margin: "auto" }}>
+      <p style={{ ...paragraphStyle, fontStyle: "italic" }}>
         Consider cloud-based deployment options such as AWS Lambda, Google Cloud, or Heroku.
       </p>
     </div>

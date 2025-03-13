@@ -1,11 +1,32 @@
 export default function LoanRepayment() {
+  const isMobile = window.innerWidth <= 768;
+  const headingStyle = {
+    fontSize: isMobile ? "1.5rem" : "2rem",
+    fontWeight: "bold",
+    marginBottom: "1rem",
+  };
+  const listStyle = {
+    listStyleType: "disc",
+    paddingLeft: "20px",
+    fontSize: isMobile ? "1rem" : "1.1rem",
+  };
+  const paragraphStyle = {
+    fontSize: isMobile ? "1rem" : "1.1rem",
+    marginBottom: "1rem",
+  };
+  const subheadingStyle = {
+    fontSize: isMobile ? "1.4rem" : "1.5rem",
+    fontWeight: "bold",
+    marginBottom: "1rem",
+  };
+
   return (
     <div style={{ textAlign: "center", padding: "2rem" }}>
-        <h2>Keras Deep Learning Loan Repayment</h2>
+        <h2 style={headingStyle}>Keras Deep Learning Loan Repayment</h2>
 
         {/* Project Summary - Bullet Points */}
         <div style={{ textAlign: "left", maxWidth: "70%", margin: "auto", paddingTop: "1rem" }}>
-          <ul style={{ listStyleType: "disc", paddingLeft: "20px" }}>
+          <ul style={listStyle}>
             <li>Developed a deep learning model to predict loan repayment outcomes using LendingClub data.</li>
             <li>Performed data cleaning, handled missing values, and analyzed feature correlations for better predictions.</li>
             <li>Used Keras and TensorFlow to build a neural network optimized with dropout, batch normalization, and ReLU activation.</li>
@@ -17,7 +38,7 @@ export default function LoanRepayment() {
 
         {/* EDA Section - Image on Left, Insights on Right */}
         {/* Guidance Sentence */}
-        <p style={{ fontSize: "1.1rem", marginBottom: "1rem", textAlign: "left"  }}>
+        <p style={paragraphStyle}>
         To understand the distribution of loan outcomes, we first analyze the loan_status feature. 
         The countplot below visualizes the number of fully paid vs. charged-off loans
           </p>
@@ -31,8 +52,8 @@ export default function LoanRepayment() {
 
           {/* Right: Insights */}
           <div style={{ width: "50%", textAlign: "left" }}>
-            <h3>Loan Status Distribution</h3>
-            <ul style={{ listStyleType: "disc", paddingLeft: "20px" }}>
+            <h3 style={subheadingStyle}>Loan Status Distribution</h3>
+            <ul style={listStyle}>
               <li>The dataset is <strong>imbalanced</strong>, with significantly more fully paid loans than charged-off ones.</li>
               <li>This imbalance may affect model predictions, requiring techniques like <strong>resampling</strong> or <strong>class weighting</strong> to ensure fair learning.</li>
               <li>The presence of defaults confirms that loan repayment is not guaranteed, reinforcing the need for a <strong>risk assessment model</strong>.</li>
@@ -46,7 +67,7 @@ export default function LoanRepayment() {
         {/* Loan Amount Histogram Section */}
         <div style={{ textAlign: "center", padding: "2rem" }}>
           {/* Guidance Sentence */}
-          <p style={{ fontSize: "1.1rem", marginBottom: "1rem", textAlign: "left"}}>
+          <p style={paragraphStyle}>
             Next, we analyze the distribution of loan amounts to understand common borrowing patterns. 
             The histogram below visualizes the frequency of different loan amounts in the dataset.
           </p>
@@ -61,8 +82,8 @@ export default function LoanRepayment() {
 
             {/* Right: Insights */}
             <div style={{ width: "50%", textAlign: "left" }}>
-              <h3>Loan Amount Distribution</h3>
-              <ul style={{ listStyleType: "disc", paddingLeft: "20px" }}>
+              <h3 style={subheadingStyle}>Loan Amount Distribution</h3>
+              <ul style={listStyle}>
                 <li>Most loans are clustered around certain amounts (e.g., $5,000, $10,000, $15,000), indicating standard loan packages.</li>
                 <li>The distribution may show peaks at specific values, suggesting common borrowing preferences.</li>
               </ul>
@@ -73,7 +94,7 @@ export default function LoanRepayment() {
         {/* Correlation Heatmap Section */}
           <div style={{ textAlign: "center", padding: "2rem" }}>
           {/* Guidance Sentence */}
-          <p style={{ fontSize: "1.1rem", marginBottom: "1rem",textAlign: "left"  }}>
+          <p style={paragraphStyle}>
             To explore relationships between numerical features, we generate a correlation heatmap. 
             This visualization helps identify which factors are most associated with loan repayment behavior.
           </p>
@@ -88,8 +109,8 @@ export default function LoanRepayment() {
 
             {/* Right: Insights */}
               <div style={{ width: "50%", textAlign: "left" }}>
-                <h3>Strong Positive Correlations</h3>
-                <ul style={{ listStyleType: "disc", paddingLeft: "20px" }}>
+                <h3 style={subheadingStyle}>Strong Positive Correlations</h3>
+                <ul style={listStyle}>
                   <li><strong>Loan Amount & Installment (0.95):</strong> Higher loan amounts lead to higher monthly installment payments.</li>
                   <li><strong>Total Accounts & Open Accounts (0.68):</strong> Borrowers with more total accounts tend to have more open accounts.</li>
                   <li><strong>Public Records & Bankruptcies (0.7):</strong> If a borrower has public records, it's likely they also have bankruptcies.</li>
@@ -207,7 +228,7 @@ export default function LoanRepayment() {
           {/* ✅ Data Cleaning Completed */}
           <div style={{ textAlign: "center", marginTop: "2rem" }}>
             <h3 style={{ color: "#00FF00" }}>✅ Data Cleaning Completed</h3>
-            <p style={{ fontSize: "1rem", maxWidth: "70%", margin: "auto", color: "#d1d1d1" }}>
+            <p style={paragraphStyle}>
               We have successfully cleaned and processed the dataset, filling in missing values, dropping unnecessary features, 
               encoding categorical variables, and engineering new features for better model performance.  
               
